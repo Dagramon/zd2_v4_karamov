@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string name="loading">Loading...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tasks">Задачи</string>
+    <string name="add">Добавить</string>
+    <string name="e_mail">E-mail</string>
+    <string name="you_example_com">you@example.com</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="new_task">Новая задача</string>
+    <string name="task_name">Название задачи</string>
+    <string name="task_description">Описание задачи</string>
+    <string name="save">Сохранить</string>
+    <string name="delete_completed">Удалить выполненные</string>
+    <string name="back">←</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="item_name">ITEM-NAME</string>
+</resources>
