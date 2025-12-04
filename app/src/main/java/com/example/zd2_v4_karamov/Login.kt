@@ -12,10 +12,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.zd2_v4_karamov.databinding.ActivityLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
+
+data class User(
+    var email: String,
+    var password: String,
+)
 
 const val PREFS = "LoginPrefs"
-const val KEY_EMAIL = "Email"
-const val  KEY_PASSWORD = "Password"
+const val KEY_USER_JSON = "User"
 
 class Login : AppCompatActivity() {
 
@@ -37,19 +42,28 @@ class Login : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences(PREFS, MODE_PRIVATE)
 
-        val savedEmail = sharedPreferences.getString(KEY_EMAIL, "")
-        val savedPassword = sharedPreferences.getString(KEY_PASSWORD, "")
+        val jsonString = sharedPreferences.getString(KEY_USER_JSON, "")
 
-        binding.emailText.setText(savedEmail)
-        binding.passwordText.setText(savedPassword)
+        var user = Gson().fromJson(jsonString, User::class.java)
+
+        if (user != null)
+        {
+            binding.emailText.setText(user.email)
+            binding.passwordText.setText(user.password)
+        }
+        else
+        {
+            user = User("", "")
+        }
 
         binding.buttonEnter.setOnClickListener {
             if (!binding.emailText.text.toString().isNullOrEmpty() && !binding.passwordText.text.toString().isNullOrEmpty())
             {
-
+                user.email = binding.emailText.text.toString()
+                user.password = binding.passwordText.text.toString()
+                var jsonUser = Gson().toJson(user)
                 sharedPreferences.edit {
-                    putString(KEY_EMAIL, binding.emailText.text.toString())
-                    putString(KEY_PASSWORD, binding.passwordText.text.toString())
+                    putString(KEY_USER_JSON, jsonUser)
                     apply()
                 }
 
