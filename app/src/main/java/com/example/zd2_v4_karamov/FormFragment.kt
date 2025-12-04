@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -78,10 +79,6 @@ class FormFragment : Fragment() {
                     if (!db.getDao().taskExists(item.name, item.date))
                     {
                         db.getDao().insertItem(item)
-                    }
-                    else
-                    {
-                        Snackbar.make(saveButton, "Такая задача уже есть на сегодня", Snackbar.LENGTH_SHORT).show()
                     }
                 }.start()
 
