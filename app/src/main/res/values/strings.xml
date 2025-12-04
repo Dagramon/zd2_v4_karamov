@@ -17,4 +17,7 @@
     <string name="back">←</string>
     <string name="description">DESCRIPTION</string>
     <string name="item_name">ITEM-NAME</string>
+    <string name="today">Сегодня</string>
+    <string name="item_date">ITEM-DATE</string>
+    <string name="category">CATEGORY</string>
 </resources>

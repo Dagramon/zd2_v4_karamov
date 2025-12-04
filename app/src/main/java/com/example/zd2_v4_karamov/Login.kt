@@ -11,6 +11,7 @@ import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.zd2_v4_karamov.databinding.ActivityLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
 const val PREFS = "LoginPrefs"
 const val KEY_EMAIL = "Email"
@@ -59,11 +60,7 @@ class Login : AppCompatActivity() {
             }
             else
             {
-                Toast.makeText(
-                    this,
-                    "Неверный ввод почты или пароля",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Snackbar.make(binding.emailText, "Неверный ввод почты или пароля", Snackbar.LENGTH_SHORT).show()
             }
         }
 
